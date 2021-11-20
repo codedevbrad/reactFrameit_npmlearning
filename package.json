@@ -1,0 +1,34 @@
+{
+  "name": "@codedevbrad/testlibrary",
+  "description": "testing library.",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "Readme.md"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel ./library --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "upload": "npm publish --access public",
+    "update-minor": "npm version minor && npm run upload",
+    "put": "npm run compile && npm run update-minor"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "babel-plugin-macros": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "version": "0.7.0"
+}
